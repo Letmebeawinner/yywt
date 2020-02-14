@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>com.dx</artifactId>
+        <groupId>dx</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>com.dx.sms</artifactId>
+    <packaging>war</packaging>
+    <name>com.dx.sms</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-api</artifactId>
+            <version>1.2.13</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-adb -->
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-adb</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+
+            </exclusions>
+            <scope>provided</scope>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2</artifactId>
+            <version>1.6.2</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.zhuozheng</groupId>
+            <artifactId>pageoffice4</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <!--本地jar的路径,相对或者绝对都可以 -->
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/pageoffice4.4.0.4.jar</systemPath>
+        </dependency>
+        <!-- httpclient -->
+        <dependency>
+            <groupId>com.zhuozheng</groupId>
+            <artifactId>splite-jdbc</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <!--本地jar的路径,相对或者绝对都可以 -->
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/sqlite-jdbc-3.7.2.jar</systemPath>
+        </dependency>
+        <!-- httpclient -->
+    </dependencies>
+
+    <build>
+        <finalName>com.dx.sms</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- tomcat plugin -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8090</port>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <url>http://127.0.0.1/manager</url>
+                    <server>tomcat7</server>
+                    <contextReloadable>true</contextReloadable>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <contextReloadable>false</contextReloadable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

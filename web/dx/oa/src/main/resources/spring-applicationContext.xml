@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"></property>
+    </bean>
+
+    <context:component-scan base-package="com.oa,com.a_268.base">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+    <import resource="spring-activiti.xml"/>
+
+
+
+    <!--配置异步任务-->
+    <task:annotation-driven executor="asyncExecutor"/>
+    <task:executor id="asyncExecutor" pool-size="100-500" queue-capacity="500"/>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="hessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.oa.biz.common.JiaoWuHessianService"></property>
+        <property name="serviceUrl">
+            <value>${jiaowu.root}/hessian/jiaoWuHessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="baseHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.oa.common.BaseHessianService"></property>
+        <property name="serviceUrl">
+            <value>${layout.root}/hessian/hessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用人事的接口 -->
+    <bean id="hrHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.oa.biz.common.HrHessianService"></property>
+        <property name="serviceUrl">
+            <value>${hr.root}/hessian/hrHessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- sms -->
+    <bean id="smsHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="chunkedPost" value="false"/>
+        <property name="overloadEnabled" value="true"/>
+        <property name="readTimeout" value="100000"/>
+        <property name="serviceInterface" value="com.oa.biz.common.SmsHessianService"/>
+        <property name="serviceUrl" value="${sms.root}/hessian/smsHessianService"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760"/>
+    </bean>
+
+    <!--调用门户平台的接口-->
+    <bean id="MenHuHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.oa.biz.common.MenHuHessianService"/>
+        <property name="serviceUrl" value="${menhu.root}/hessian/MenHuHessianService"/>
+        <property name="readTimeout" value="1000000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用后勤项目的接口 -->
+    <bean id="HqHessionService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.oa.biz.common.HqHessianService"/>
+        <property name="serviceUrl" value="${hq.root}/hessian/HqHessionService"/>
+        <property name="readTimeout" value="1000000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+</beans>

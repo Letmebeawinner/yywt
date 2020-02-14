@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties" />
+    </bean>
+
+    <context:component-scan base-package="com.base,com.a_268.base">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="jwHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.base.biz.common.JiaoWuHessianService" />
+        <property name="serviceUrl" value="${jw.root}/hessian/jiaoWuHessianService"/>
+        <property name="readTimeout" value="100000" />
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- sms -->
+    <bean id="smsHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="chunkedPost" value="false" />
+        <property name="overloadEnabled" value="true"/>
+        <property name="readTimeout" value="100000"/>
+        <property name="serviceInterface" value="com.base.biz.common.SmsHessianService" />
+        <property name="serviceUrl" value="${sms.root}/hessian/smsHessianService"/>
+    </bean>
+
+    <bean id="hrHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="chunkedPost" value="false" />
+        <property name="readTimeout" value="100000"/>
+        <property name="serviceInterface" value="com.base.biz.common.HrHessianService" />
+        <property name="serviceUrl" value="${hr.root}/hessian/hrHessianService"/>
+    </bean>
+
+    <!-- 调用OA的接口 -->
+    <bean id="oaHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.base.biz.common.OAHessianService"></property>
+        <property name="serviceUrl">
+            <value>${oa.root}/hessian/OAHessionService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用KY的接口 -->
+    <bean id="kyHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.base.biz.common.KyHessianService"></property>
+        <property name="serviceUrl">
+            <value>${ky.root}/hessian/kyHessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+</beans>

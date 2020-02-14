@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.classes.ClassTypeStatisticDao">
+
+    <select id="queryClassTypeCount" parameterType="com.jiaowu.entity.user.User"
+            resultType="com.jiaowu.entity.classes.ClassTypeStatistic">
+        select
+        c.`name` as classTypeName,
+        u.className,
+        u.classTypeId,
+        count(*) as num
+        from user u
+        left join classtype c on u.classTypeId=c.id
+        left join classes on classes.id = u.classId
+        <where>
+            <if test="classTypeStatistic.classTypeId!=null and classTypeStatistic.classTypeId>0">
+                and u.classTypeId=#{classTypeStatistic.classTypeId}
+            </if>
+            <if test="classTypeStatistic.classId!=null and classTypeStatistic.classId>0">
+                and u.classId=#{classTypeStatistic.classId}
+            </if>
+            <if test="(classTypeStatistic.age!=null and classTypeStatistic.age>-1) and (classTypeStatistic.ageOne==null)">
+                and u.age=#{classTypeStatistic.age}
+            </if>
+            
+            <if test="classTypeStatistic.ageOne!=null and classTypeStatistic.ageOne>-1  and classTypeStatistic.age ==null">
+                and u.age=#{classTypeStatistic.age}
+            </if>
+            
+            <if test="(classTypeStatistic.age!=null and classTypeStatistic.age>-1) and (classTypeStatistic.ageOne!=null and classTypeStatistic.ageOne>-1)">
+                u.age BETWEEN  #{classTypeStatistic.age}  AND  ${classTypeStatistic.ageOne}
+            </if>
+            <if test="classTypeStatistic.business!=null and classTypeStatistic.business>0">
+                and u.business=#{classTypeStatistic.business}
+            </if>
+            <if test="classTypeStatistic.startTime!=null">
+                and <![CDATA[classes.startTime >= #{classTypeStatistic.startTime} ]]>
+            </if>
+            <if test="classTypeStatistic.endTime!=null">
+                and <![CDATA[classes.endTime <= #{classTypeStatistic.endTime} ]]>
+            </if>
+            <if test="classTypeStatistic.politicalStatus!=null and classTypeStatistic.politicalStatus == 1">
+                and u.politicalStatus = 0
+            </if>
+            <if test="classTypeStatistic.politicalStatus!=null and classTypeStatistic.politicalStatus == 2">
+                and u.politicalStatus > 0
+            </if>
+        </where>
+        group by classTypeId,classId
+        order by c.id desc;
+    </select>
+
+    <select id="queryClassTypeNum" resultType="com.jiaowu.entity.classes.ClassTypeStatistic">
+        select
+        c.`name` as className,
+        u.classTypeId,
+        count(*) as num
+        from user u
+        left join classtype c on u.classTypeId=c.id
+        group by classTypeId
+        order by c.id desc;
+    </select>
+
+
+</mapper>

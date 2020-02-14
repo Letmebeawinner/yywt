@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.classes.ClassesStatisticDao">
+
+    <select id="queryClassPersonNum" resultType="com.jiaowu.entity.classes.ClassesStatistic">
+        select user.classId,classes.`name`,count(*) as num,type.name as classTypeName from user left join classes on user.classId=classes.id
+        left join classtype type on classes.classTypeId= type.id
+        where user.status in (1,7,8) ${whereSql} group by classId order by classes.id desc;
+    </select>
+
+    <select id="queryUnitPersonNum" resultType="com.jiaowu.entity.classes.ClassesStatistic">
+        select unit.id,unit.name,count(*) as num from unit left join user on unit.id=`user`.unitId where user.classId=${whereSql} and  user.status in (1,7,8) group by unit.id order by unit.id;
+    </select>
+
+    <select id="queryUnitClassTypeNum" resultType="com.jiaowu.entity.classes.ClassesStatistic">
+        select classTypeId,unitId,count(*) as num from user where classTypeId=${whereSql} and `status` in (1,7,8)  and unitId!=0 group by unitId;
+    </select>
+
+</mapper>

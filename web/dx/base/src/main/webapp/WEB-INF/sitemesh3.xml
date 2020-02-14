@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/layouts/main.jsp”所装饰 -->
+    <mapping path="/admin/*" decorator="/WEB-INF/layout/admin/default.jsp"/>
+    <!-- 排除布局 -->
+    <mapping path="/admin/toLogin.json" exclue="true"/>
+    <mapping path="/admin/index.json" exclue="true"/>
+    <mapping path="/admin/waitProcess.json" exclue="true"/>
+    <mapping path="/admin/base/permission/getResource.json" exclue="true"/>
+    <mapping path="/admin/base/permission/addOrUpdateResource.json" exclue="true"/>
+    <mapping path="/admin/base/permission/deleteResource.json" exclue="true"/>
+    <mapping path="/admin/base/role/addOrUpdateRole.json" exclue="true"/>
+    <mapping path="/admin/base/role/deleteRoles.json" exclue="true"/>
+    <mapping path="/admin/base/role/getRoleResources.json" exclue="true"/>
+    <mapping path="/admin/base/role/updateRoleResources.json" exclue="true"/>
+    <mapping path="/admin/base/sysuser/getDepartmentTree.json" exclue="true"/>
+    <mapping path="/admin/base/department/getDepartmentRole.json" exclue="true"/>
+    <mapping path="/admin/base/sysuser/queryTeacherStudentList.json" exclue="true"/>
+    <content-processor>
+        <tag-rule-bundle class="com.a_268.base.sitemesh.MetaExtendTegRuleBundle"/>
+    </content-processor>
+</sitemesh>

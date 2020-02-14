@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yicardtong.dao.workdata.WorkSourceDao">
+
+    <resultMap id="workDataResultMap" type="com.yicardtong.entity.workdaydata.WorkDayDataVO">
+        <result column="Base_PerID" property="personId" />
+        <result column="Base_PerName" property="name" />
+        <result column="Base_CardNo" property="cardNo" />
+    </resultMap>
+
+    <select id="queryAllWorkSource" resultMap="workDataResultMap" parameterType="java.lang.String">
+        SELECT
+            TOP 10
+            General_Personnel.Base_CardNo,
+            General_Personnel.Base_PerName,
+            Work_Source.Source_Date,
+            Work_Source.Source_Data,
+            Work_Source.Date
+        FROM
+            Work_Source
+            LEFT JOIN General_Personnel ON General_Personnel.Base_PerNo = Work_Source.Base_PerNo
+        WHERE
+            Work_Source.cID NOT IN (
+                SELECT
+                    TOP 40 cID
+                FROM
+                    Work_Source
+                ORDER BY
+                    cID
+            )
+            AND General_Personnel.Base_CardNo = '8EB4B6B4'
+            AND Work_Source.Source_Date BETWEEN '2001-01-01' AND '2099-01-01'
+        ORDER BY
+            Work_Source.cID
+    </select>
+</mapper>

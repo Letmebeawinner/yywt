@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.classes.ClassTypeStatisticDao">
+
+    <select id="queryClassTypeCount" resultType="com.jiaowu.entity.classes.ClassTypeStatistic">
+        select c.`name` as className,u.classTypeId,count(*) as num from user u left join classtype c on u.classTypeId=c.id group by classTypeId;
+    </select>
+
+</mapper>

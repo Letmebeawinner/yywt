@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>资源检索平台</title>
+<style>
+html,body{ margin:0; padding:0; height:100%; overflow:hidden;}
+.mian{ width:50%; margin:0 auto; position:fixed; top:40%; left:50%; transform: translate(-50%,-50%); -webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);}
+.mian h2{ color:#DE000C; margin:0; line-height:56px; text-align:center; font-size:44px; letter-spacing: 16px;}
+.content{ width:340px; margin:0 auto;}
+.choice{ margin-top:100px;}
+.choice,.choice label{ display:inline-block; line-height:20px;}
+.search{ margin-top: 15px;}
+#frame input{ padding:5px 10px;border: solid 1px #e2e2e2; line-height:20px; min-width:240px;}
+#searchBtn input{ border: solid 1px #169BD5; background-color:#169BD5; padding:5px 10px; color:#fff; line-height:20px; cursor: pointer; border-radius: 5px; margin-left:20px;}
+#searchBtn input:focus{ outline:none;}
+</style>
+</head>
+
+<body>
+	<div class="mian">
+		<h2>贵阳市委党校<br>内网资源检索平台</h2>
+		<form method = "POST" action="http://www.sslibrary.com/searchBookChangeCode.jsp" target=“_blank”>
+			<!--嵌入检索框的网站的编码-->
+		<input type="hidden" name="ec" value="GBK"/>
+        <div class="content">
+            <div class="choice">
+                <label>
+                    <input type="radio" value="1" name="Field" checked="checked"/>
+                    <span>书名</span>            
+                </label>
+                <label style="margin-left:20px;">
+                    <input type="radio" value="2" name="Field" />
+                    <span>作者</span>            
+                </label>
+            </div>
+            <div class="search">
+                <label id="frame">
+                    <input type="text" placeholder="">
+                </label>
+                <label id="searchBtn">
+                    <input type="submit" value="检索">
+                </label>
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

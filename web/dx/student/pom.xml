@@ -1,0 +1,168 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>com.dx</artifactId>
+        <groupId>dx</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>com.dx.student</artifactId>
+    <packaging>war</packaging>
+    <name>com.dx.student</name>
+    <url>http://10.100.101.1:6681/admin/toLogin.json</url>
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20140107</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <!-- quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- <dependency>
+             <groupId>org.apache.poi</groupId>
+             &lt;!&ndash;<artifactId>poi</artifactId>
+             <version>3.9</version>&ndash;&gt;
+             <artifactId>poi-2.5.1-final</artifactId>
+             <version>20040804</version>
+         </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.38</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+        <!--web service 需要的jar-->
+
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-discovery/commons-discovery -->
+        <dependency>
+            <groupId>commons-discovery</groupId>
+            <artifactId>commons-discovery</artifactId>
+            <version>0.2</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.soap/saaj-api -->
+        <dependency>
+            <groupId>javax.xml.soap</groupId>
+            <artifactId>saaj-api</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/wsdl4j/wsdl4j -->
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhuozheng</groupId>
+            <artifactId>pageoffice4</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <!--本地jar的路径,相对或者绝对都可以 -->
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/pageoffice4.4.0.4.jar</systemPath>
+        </dependency>
+        <!-- httpclient -->
+        <dependency>
+            <groupId>com.zhuozheng</groupId>
+            <artifactId>splite-jdbc</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <!--本地jar的路径,相对或者绝对都可以 -->
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/sqlite-jdbc-3.7.2.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>com.dx.student</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20.1</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- tomcat plugin -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8081</port>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <url>http://127.0.0.1/manager</url>
+                    <server>tomcat7</server>
+                    <contextReloadable>true</contextReloadable>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <contextReloadable>false</contextReloadable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

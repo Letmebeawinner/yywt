@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
+
+
+    <!--删除到期学员-->
+    <bean id="removeWifiUser" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject" ref="dpWebServiceImpl"/>
+                <property name="targetMethod" value="removeWifiUser"/>
+                <property name="concurrent" value="false"/>
+            </bean>
+        </property>
+        <!--  每天凌晨一点触发  -->
+        <property name="cronExpression" value="0 0 1 * * ?"/>
+    </bean>
+   
+	<!-- 自动添加教学评价类别 -->
+    <bean id="autoAddTeachingComment" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="teachingCommentBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>autoAddTeachingComment</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 30 0 * * ?</value><!--  每天凌晨0点30触发  -->
+        </property>
+    </bean>
+	<!-- 每天根据排课信息和打卡记录算出每天的考勤记录 -->
+    <bean id="dailySumAttendance" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="attendanceBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>dailySumAttendance</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 10 0 * * ?</value><!--  每天凌晨0点10触发  -->
+        </property>
+    </bean>
+    <!-- 更新已结束班次的学员的状态. -->
+    <bean id="updateGraduateStudentStatus" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="userBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>updateGraduateStudentStatus</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 5 0 * * ?</value><!--  每天凌晨0点50触发  -->
+        </property>
+    </bean>
+
+    <!-- 更新已结束班次的学员的状态. -->
+    <bean id="updateStudentStatus" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="userBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>updateStudentStatus</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 20 0 * * ?</value><!--  每天凌晨0点20触发  -->
+        </property>
+    </bean>
+
+    <!-- 更新已结束班次的学员的状态. -->
+    <bean id="updateStudentNormalStatus" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="userBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>updateStudentNormalStatus</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 30 0 * * ?</value><!--  每天凌晨0点30触发  -->
+        </property>
+    </bean>
+
+
+    <!--每一小时定时添加每堂课评价记录-->
+    <bean id="autoAddCourseArrangeEvaluate" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="courseArrangeEvaluateBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>autoAddCourseArrangeEvaluate</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 * * * ?</value><!--  每小时触发  -->
+        </property>
+    </bean>
+
+    <!--每天获取work_day_data数据，保存到数据库中-->
+    <bean id="autoAddWorkDayData" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" lazy-init="false">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="attendanceBiz" />
+                </property>
+                <property name="targetMethod">
+                    <value>autoAddWorkDayData</value>
+                </property>
+                <property name="concurrent">
+                    <value>true</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 13,20 * * ?</value><!--  每天凌晨0点30触发  -->
+        </property>
+    </bean>
+	<!-- 定时器配置 lazy-init='false'-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"  lazy-init="false" autowire="no"> 
+		<property name="triggers"> 
+			<list> 
+               <!--<ref bean="autoAddTeachingComment" />-->
+               <ref bean="dailySumAttendance" />
+                <ref bean="updateStudentStatus"/>
+                <ref bean="updateGraduateStudentStatus"/>
+                <ref bean="updateStudentNormalStatus"/>
+                <ref bean="autoAddCourseArrangeEvaluate"/>
+                <ref bean="autoAddWorkDayData"/>
+                <ref bean="removeWifiUser"/>
+			</list>
+		</property> 
+	</bean>
+</beans>

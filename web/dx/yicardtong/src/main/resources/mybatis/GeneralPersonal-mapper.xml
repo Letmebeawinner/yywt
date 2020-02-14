@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yicardtong.dao.general.GeneralPersonalDao">
+
+
+    <sql id="general_personal_columns">
+        General_Personnel.Base_PerID,
+        General_Personnel.Base_PerNo,
+        General_Personnel.Base_PerName,
+        General_Personnel.Base_GroupID,
+        General_Personnel.Base_CardNo,
+        General_Personnel.Base_Money,
+        General_Personnel.Base_Deposit,
+        General_Personnel.Base_SubID,
+        General_Personnel.Base_Sex,
+        General_Personnel.Base_Tel,
+        General_Personnel.Base_BirthDay,
+        General_Personnel.Base_Photo,
+        General_Personnel.Base_IdCard,
+        General_Personnel.Base_Memo,
+        General_Personnel.Base_StartDateTime,
+        General_Personnel.Base_StopDateTime,
+        General_Personnel.Base_Password,
+        General_Personnel.Base_IsIDIC,
+        General_Personnel.Base_Type,
+        General_Personnel.Base_State,
+        General_Personnel.Base_CostList,
+        General_Personnel.Base_DataOne,
+        General_Personnel.Base_DataTwo,
+        General_Personnel.Base_DataThr,
+        General_Personnel.Base_IsDel,
+        General_Personnel.Base_Modify_User,
+        General_Personnel.Base_Modify_DateTime,
+        General_Personnel.Base_RoleID,
+        General_Personnel.Base_AssPerID,
+        General_Personnel.Base_WebPassword,
+        General_Personnel.Base_RepealCardNo,
+        General_Personnel.Base_RepealMoney,
+        General_Personnel.Base_Work,
+        General_Personnel.Base_AddrID,
+        General_Personnel.YD_CARDID,
+        General_Personnel.YD_APP,
+        General_Personnel.YD_TEL,
+        General_Personnel.YD_SENDMODE,
+        General_Personnel.PapersType,
+        General_Personnel.VehicleNo,
+        General_Personnel.Base_CardNo_1,
+        General_Personnel.Base_CardNo_2,
+        General_Personnel.Base_CardNo_3,
+        General_Personnel.Base_CardNo_4,
+        General_Personnel.BASE_CMONEY,
+        General_Personnel.Base_SUBMONEY
+    </sql>
+
+    <sql id="general_personal_properties">
+        #{Base_PerID},
+        #{Base_PerNo},
+        #{Base_PerName},
+        #{Base_GroupID},
+        #{Base_CardNo},
+        #{Base_Money},
+        #{Base_Deposit},
+        #{Base_SubID},
+        #{Base_Sex},
+        #{Base_Tel},
+        #{Base_BirthDay},
+        #{Base_Photo},
+        #{Base_IdCard},
+        #{Base_Memo},
+        #{Base_StartDateTime},
+        #{Base_StopDateTime},
+        #{Base_Password},
+        #{Base_IsIDIC},
+        #{Base_Type},
+        #{Base_State},
+        #{Base_CostList},
+        #{Base_DataOne},
+        #{Base_DataTwo},
+        #{Base_DataThr},
+        #{Base_IsDel},
+        #{Base_Modify_User},
+        #{Base_Modify_DateTime},
+        #{Base_RoleID},
+        #{Base_AssPerID},
+        #{Base_WebPassword},
+        #{Base_RepealCardNo},
+        #{Base_RepealMoney},
+        #{Base_Work},
+        #{Base_AddrID},
+        #{YD_CARDID},
+        #{YD_APP},
+        #{YD_TEL},
+        #{YD_SENDMODE},
+        #{PapersType},
+        #{VehicleNo},
+        #{Base_CardNo_1},
+        #{Base_CardNo_2},
+        #{Base_CardNo_3},
+        #{Base_CardNo_4},
+        #{BASE_CMONEY},
+        #{Base_SUBMONEY}
+    </sql>
+
+
+    <insert id="addGeneralPersonal" parameterType="com.yicardtong.entity.general.GeneralPersonnel" useGeneratedKeys="true">
+        insert into General_Personnel (<include refid="general_personal_columns"/>)
+        values (<include refid="general_personal_properties"/>)
+    </insert>
+
+    <select id="queryGeneralPersonList" parameterType="com.yicardtong.entity.general.GeneralPersonnel" resultType="com.yicardtong.entity.general.GeneralPersonnel">
+        select <include refid="general_personal_columns"/>
+        from General_Personnel order by Base_PerID desc
+    </select>
+    
+    <select id="queryPersonalInfoByCardNo" parameterType="com.yicardtong.entity.general.GeneralPersonnel" resultType="com.yicardtong.entity.general.GeneralPersonnel">
+        select * from General_Personnel where Base_CardNo=${whereSql};
+    </select>
+    
+
+    <update id="updateGeneralPersonal" parameterType="com.yicardtong.entity.general.GeneralPersonnel">
+        update General_Personnel
+        set Base_PerName=#{Base_PerName},
+        Base_PerNo=#{Base_PerNo},
+        Base_IsDel=#{Base_IsDel},
+        Base_Work=#{Base_Work},
+        Base_Deposit=#{Base_Work},
+        Base_Sex=#{Base_Sex}
+        where Base_CardNo =#{Base_CardNo}
+    </update>
+
+    <delete id="deleteGeneralPersonal" parameterType="String">
+        delete from General_Personnel
+        where Base_PerID =#{Base_PerID}
+    </delete>
+
+
+
+</mapper>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload file</title>
+    <link type="text/css" rel="stylesheet" href="/static/uploadify/uploadify.css"/>
+    <script type="text/javascript" src="/static/uploadify/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/static/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript" src="/static/js/upload-file.js"></script>
+    <script type="text/javascript">
+        function upFile(){
+            jQuery("#uploadFile").uploadify('upload');
+        }
+
+        $(function () {
+            uploadFile("uploadFile",false,"",'http://192.168.1.100:94',callbackFile);
+        });
+
+        function callbackFile(data){
+            alert(data);
+        }
+
+        function upImage(){
+            jQuery("#uploadImage").uploadify('upload');
+        }
+        $(function () {
+            uploadImage("uploadImage",true,"myImage",'http://192.168.1.100:94',callbackImage);
+        });
+
+        function callbackImage(data){
+            alert(data);
+        }
+
+        function dowFile() {
+            jQuery("#dowFileForm").submit();
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" id="uploadFile" value="上传文件"/>
+    <a onclick="upFile()" href="javascript:void(0)">上传</a>
+    <br/>
+    <br/>
+    <br/>
+    <input type="button" id="uploadImage" value="上传图片"/>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <form action="/upload/res/downolad/downoladFile" id="dowFileForm" method="post">
+        <input type="hidden" name="fileUrl" value="/upload/res/file/myFile/20161216/1481908496867.docx"/>
+        <input type="hidden" name="fileName" value="我下载的文件"/>
+
+    </form>
+    <a href="javascript:void(0)" onclick="dowFile()">下载文件</a>
+</div>
+</body>
+</html>

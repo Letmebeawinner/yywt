@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://service.resm.dp.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="http://service.resm.dp.com">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.resm.dp.com">
+<xsd:element name="editPassword">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="password" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="overdueTime" type="xsd:long"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="phone" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="editPasswordResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="ret" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addUser">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="username" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="password" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="onlineMax" type="xsd:int"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="part" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="overdueTime" type="xsd:long"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="phone" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addUserResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="ret" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delUser">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="delUserResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="ret" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addUserRequest">
+    <wsdl:part name="parameters" element="tns:addUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPasswordResponse">
+    <wsdl:part name="parameters" element="tns:editPasswordResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delUserResponse">
+    <wsdl:part name="parameters" element="tns:delUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delUserRequest">
+    <wsdl:part name="parameters" element="tns:delUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editPasswordRequest">
+    <wsdl:part name="parameters" element="tns:editPassword">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addUserResponse">
+    <wsdl:part name="parameters" element="tns:addUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserManageAddServicePortType">
+    <wsdl:operation name="editPassword">
+      <wsdl:input name="editPasswordRequest" message="tns:editPasswordRequest">
+    </wsdl:input>
+      <wsdl:output name="editPasswordResponse" message="tns:editPasswordResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input name="addUserRequest" message="tns:addUserRequest">
+    </wsdl:input>
+      <wsdl:output name="addUserResponse" message="tns:addUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUser">
+      <wsdl:input name="delUserRequest" message="tns:delUserRequest">
+    </wsdl:input>
+      <wsdl:output name="delUserResponse" message="tns:delUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserManageAddServiceHttpBinding" type="tns:UserManageAddServicePortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="editPassword">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="editPasswordRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="editPasswordResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="delUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserManageAddService">
+    <wsdl:port name="UserManageAddServiceHttpPort" binding="tns:UserManageAddServiceHttpBinding">
+      <wsdlsoap:address location="http://10.100.101.35/UMC/service/UserManageAddService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

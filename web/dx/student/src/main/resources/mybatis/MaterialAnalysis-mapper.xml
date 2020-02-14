@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.material.MaterialAnalysisDao">
+
+    <select id="getMaterialAnalysisList" resultType="com.jiaowu.entity.material.MaterialAnalysisDTO" parameterType="Map">
+        select materialanalysis.*,user.classTypeName,user.className from materialanalysis,user where materialanalysis.studentId=user.id and materialanalysis.status=1
+        and user.status=1
+        <if test="studentId!=null and studentId!=0">
+            and materialanalysis.studentId=#{studentId}
+        </if>
+        <if test="meetingId!=null and meetingId!=0">
+            and materialanalysis.meetingId=#{meetingId}
+        </if>
+        <if test="classTypeId!=null and classTypeId!=0">
+          and user.classTypeId=#{classTypeId}
+        </if>
+        <if test="classId!=null and classId!=0">
+            and user.classId=#{classId}
+        </if>
+        limit ${start},${end}
+    </select>
+    <select id="getMaterialAnalysisListCount" resultType="int" parameterType="Map">
+        select count(1) from materialanalysis,user where materialanalysis.studentId=user.id and materialanalysis.status=1
+        and user.status=1
+        <if test="studentId!=null and studentId!=0">
+            and materialanalysis.studentId=#{studentId}
+        </if>
+        <if test="meetingId!=null and meetingId!=0">
+            and materialanalysis.meetingId=#{meetingId}
+        </if>
+        <if test="classTypeId!=null and classTypeId!=0">
+            and user.classTypeId=#{classTypeId}
+        </if>
+        <if test="classId!=null and classId!=0">
+            and user.classId=#{classId}
+        </if>
+    </select>
+    
+</mapper>

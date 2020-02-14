@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"/>
+    </bean>
+
+    <context:component-scan base-package="com.tongji,com.a_268.base">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <!-- 档案Hessian接口 -->
+    <bean id="dangAnHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.DangAnHessianService" />
+        <property name="serviceUrl" value="${dangan.path}/hessian/dangAnHessianService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <!-- 后勤Hessian接口 -->
+    <bean id="hqHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.HqHessianService" />
+        <property name="serviceUrl" value="${houqin.path}/hessian/HqHessionService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <!-- 人事Hessian接口 -->
+    <bean id="hrHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.HrHessianService" />
+        <property name="serviceUrl" value="${renshi.path}/hessian/hrHessianService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <!-- 干部Hessian接口 -->
+    <bean id="ganbuHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.GanBuHessianService" />
+        <property name="serviceUrl" value="${ganbu.path}/hessian/ganBuHessianService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <!-- 教务Hessian接口 -->
+    <bean id="jiaoWuHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.JiaoWuHessianService" />
+        <property name="serviceUrl" value="${jiaowu.path}/hessian/jiaoWuHessianService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <!-- 科研咨政Hessian接口 -->
+    <bean id="kyHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.tongji.biz.common.KyHessianService" />
+        <property name="serviceUrl" value="${kyzz.path}/hessian/kyHessianService" />
+        <property name="connectTimeout" value="100000" />
+        <property name="chunkedPost" value="false" />
+    </bean>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+</beans>

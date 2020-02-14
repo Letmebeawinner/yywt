@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yicardtong.dao.workdata.WorkDataDao">
+    <resultMap id="workDataResultMap" type="com.yicardtong.entity.workdaydata.WorkDayDataVO">
+        <result column="Base_PerID" property="personId" />
+        <result column="Base_PerName" property="name" />
+        <result column="Base_CardNo" property="cardNo" />
+        <collection column="{pId=Base_PerID, startT=startTime, endT=endTime}" property="nodes" javaType="java.util.ArrayList"
+                    ofType="com.yicardtong.entity.workdaydata.WorkDayDataNode" select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="nextNodeTree" type="com.yicardtong.entity.workdaydata.WorkDayDataNode">
+        <result column="Work_Date" property="workDate" />
+        <result column="cMemo" property="memo" />
+    </resultMap>
+
+    <select id="queryAllWorkData" resultMap="workDataResultMap" parameterType="java.lang.String">
+        SELECT
+            General_Personnel.Base_PerID,
+            General_Personnel.Base_PerName,
+            General_Personnel.Base_CardNo,
+            ${start} as startTime,
+            ${end} as endTime
+        FROM
+            General_Personnel
+            LEFT JOIN Work_Day_Data ON General_Personnel.Base_PerID = Work_Day_Data.Base_PerID
+        WHERE General_Personnel.Base_CardNo IN
+              (${ids})
+        GROUP BY
+            General_Personnel.Base_PerID,
+            General_Personnel.Base_PerName,
+            General_Personnel.Base_CardNo
+    </select>
+
+    <select id="queryAllWorkDataByPage" resultMap="workDataResultMap" parameterType="java.util.Map">
+        SELECT
+            *
+        FROM
+            (
+                SELECT
+                    TOP ${param.offSet} ROW_NUMBER () OVER (
+                        ORDER BY
+                        General_Personnel.Base_PerID
+                ) AS rownum,
+                    General_Personnel.Base_PerID,
+                    General_Personnel.Base_PerName,
+                    General_Personnel.Base_CardNo,
+                    ${param.start} as startTime,
+                    ${param.end} as endTime
+                FROM
+                    General_Personnel
+                    LEFT JOIN Work_Day_Data ON General_Personnel.Base_PerID = Work_Day_Data.Base_PerID
+                WHERE
+                    General_Personnel.Base_CardNo IN (
+                        ${param.ids}
+                    )
+                GROUP BY
+                    General_Personnel.Base_PerID,
+                    General_Personnel.Base_PerName,
+                    General_Personnel.Base_CardNo
+            ) AS temp
+        WHERE
+            temp.rownum > ${param.endSet}
+    </select>
+
+    <select id="countQueryAllWorkDataByPage" resultType="int" parameterType="java.lang.String">
+        SELECT
+            COUNT( DISTINCT General_Personnel.Base_CardNo)
+        FROM
+            General_Personnel
+            LEFT JOIN Work_Day_Data ON General_Personnel.Base_PerID = Work_Day_Data.Base_PerID
+        WHERE
+            General_Personnel.Base_CardNo IN (${param})
+    </select>
+
+
+    <select id="getNextNodeTree" resultMap="nextNodeTree">
+      SELECT Work_Day_Data.Work_Date, Work_Day_Data.cMemo
+      FROM Work_Day_Data
+      WHERE
+          Base_PerID=#{pId}
+      AND Work_Date BETWEEN #{startT} AND #{endT}
+      ORDER BY Work_Day_Data.Work_Date DESC
+    </select>
+</mapper>

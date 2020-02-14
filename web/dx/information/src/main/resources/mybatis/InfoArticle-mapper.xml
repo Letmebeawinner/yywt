@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.information.dao.InfoArticleDao">
+
+    <sql id="article_columns">
+        ECMS_Article.ClassID,
+        ECMS_Article.ItemID,
+        ECMS_Article.TableName,
+        ECMS_Article.Title,
+        ECMS_Article.LinkUrl,
+        ECMS_Article.FileUrl,
+        ECMS_Article.Inputer,
+        ECMS_Article.Editor,
+        ECMS_Article.Hits,
+        ECMS_Article.DayHits,
+        ECMS_Article.WeekHits,
+        ECMS_Article.MonthHits,
+        ECMS_Article.AddTime,
+        ECMS_Article.UpdateTime,
+        ECMS_Article.CreateTime,
+        ECMS_Article.Status,
+        ECMS_Article.LastHitTime,
+        ECMS_Article.TitleFontColor,
+        ECMS_Article.TitleFontType,
+        ECMS_Article.IncludePic,
+        ECMS_Article.FilePath,
+        ECMS_Article.FileName,
+        ECMS_Article.FileType,
+        ECMS_Article.EliteLevel,
+        ECMS_Article.IsADLink,
+        ECMS_Article.ADLink,
+        ECMS_Article.TopImage,
+        ECMS_Article.LangID,
+        ECMS_Article.SubTitle,
+        ECMS_Article.KeyWord,
+        ECMS_Article.CopyFrom,
+        ECMS_Article.SmallContent,
+        ECMS_Article.IsHot,
+        ECMS_Article.IsRecommend,
+        ECMS_Article.IsKommentar,
+        ECMS_Article.Content,
+        ECMS_Article.IsReplaceKeyWord,
+        ECMS_Article.IsAutoPage,
+        ECMS_Article.AutoPageStrNum
+    </sql>
+
+    <sql id="article_properties">
+        #{ClassID},
+        #{ItemID},
+        #{TableName},
+        #{Title},
+        #{LinkUrl},
+        #{FileUrl},
+        #{Inputer},
+        #{Editor},
+        #{Hits},
+        #{DayHits},
+        #{WeekHits},
+        #{MonthHits},
+        #{AddTime},
+        #{UpdateTime},
+        #{CreateTime},
+        #{Status},
+        #{LastHitTime},
+        #{TitleFontColor},
+        #{TitleFontType},
+        #{IncludePic},
+        #{FilePath},
+        #{FileName},
+        #{FileType},
+        #{EliteLevel},
+        #{IsADLink},
+        #{ADLink},
+        #{TopImage},
+        #{LangID},
+        #{SubTitle},
+        #{KeyWord},
+        #{CopyFrom},
+        #{SmallContent},
+        #{IsHot},
+        #{IsRecommend},
+        #{IsKommentar},
+        #{Content},
+        #{IsReplaceKeyWord},
+        #{IsAutoPage},
+        #{AutoPageStrNum}
+    </sql>
+
+
+    <insert id="addInfoArticle" parameterType="com.information.entity.InfoArticle"  useGeneratedKeys="true" keyColumn="ID" keyProperty="ID">
+        insert into ECMS_Article(<include refid="article_columns"/>)
+        values (<include refid="article_properties"/>)
+    </insert>
+
+    <delete id = "delInfoArticle" parameterType="long">
+        delete from ECMS_Article where id = #{id}
+    </delete>
+
+
+</mapper>

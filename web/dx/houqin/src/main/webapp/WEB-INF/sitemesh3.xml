@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/layouts/main.jsp”所装饰 -->
+    <mapping path="/admin/*" decorator="/WEB-INF/layout/admin/default.jsp" />
+    <mapping path="/" decorator="/WEB-INF/layout/admin/default.jsp" />
+	<!-- 排除布局 -->
+	<mapping path="/admin/toLogin" exclue="true"/>
+    <mapping path="/admin/houqin/ajax/*" exclue="true"/>
+    <mapping path="/app/houqin/*" exclue="true"/>
+    <mapping path="/admin/houqin/repairGetSysuserList.json" exclue="true"/>
+    <mapping path="/admin/houqin/getSystemUserList.json" exclue="true"/>
+    <mapping path="/admin/houqin/selectPropertyList.json" exclue="true"/>
+    <mapping path="/admin/houqin/selectMeeting.json" exclue="true"/>
+	<content-processor>
+    	<tag-rule-bundle class="com.a_268.base.sitemesh.MetaExtendTegRuleBundle" />
+    </content-processor>
+</sitemesh>

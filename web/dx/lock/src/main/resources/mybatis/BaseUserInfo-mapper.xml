@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lock.dao.UserInfoDao">
+
+    <sql id="basic_info_columns">
+        UserBasicInfo.UserName,
+        UserBasicInfo.CardId,
+        UserBasicInfo.Balance,
+        UserBasicInfo.ConsumeTotal,
+        UserBasicInfo.CardStatusId,
+        UserBasicInfo.CardType,
+        UserBasicInfo.Phonetized_Name,
+        UserBasicInfo.GenderId,
+        UserBasicInfo.RegisterTime,
+        UserBasicInfo.WorkPosition,
+        UserBasicInfo.WorkType,
+        UserBasicInfo.EmployeeType,
+        UserBasicInfo.ExpiredTime,
+        UserBasicInfo.Status,
+        UserBasicInfo.PassWord,
+        UserBasicInfo.IdentityNo,
+        UserBasicInfo.CridentialId,
+        UserBasicInfo.HomePhone,
+        UserBasicInfo.CellPhone,
+        UserBasicInfo.Birthday,
+        UserBasicInfo.Address,
+        UserBasicInfo.EduLevelId,
+        UserBasicInfo.StuClassId,
+        UserBasicInfo.DutyId,
+        UserBasicInfo.EmpDeptId,
+        UserBasicInfo.TchSpecialityId,
+        UserBasicInfo.GraduatedSchool,
+        UserBasicInfo.GraduateSpeciality,
+        UserBasicInfo.WorkTime,
+        UserBasicInfo.BedchamberId,
+        UserBasicInfo.StudentFlag,
+        UserBasicInfo.EmployeeFlag,
+        UserBasicInfo.TeacherFlag,
+        UserBasicInfo.ACRuleId,
+        UserBasicInfo.DeleteDate,
+        UserBasicInfo.OrgCorp,
+        UserBasicInfo.CardId_10,
+        UserBasicInfo.CredentialsTypeId,
+        UserBasicInfo.Corporation,
+        UserBasicInfo.NationId,
+        UserBasicInfo.Instructor,
+        UserBasicInfo.PoliticsId,
+        UserBasicInfo.GraduateTime,
+        UserBasicInfo.GuardianName,
+        UserBasicInfo.StudentStatus,
+        UserBasicInfo.StudentTypeId,
+        UserBasicInfo.SchoolSystem,
+        UserBasicInfo.StudentChange,
+        UserBasicInfo.Remarks,
+        UserBasicInfo.BedNum,
+        UserBasicInfo.UserType,
+        UserBasicInfo.ExtUserId,
+        UserBasicInfo.OfficePhone,
+        UserBasicInfo.SubCardId,
+        UserBasicInfo.InsureTime,
+        UserBasicInfo.InsutanceId,
+        UserBasicInfo.HealthStatusId,
+        UserBasicInfo.SubCardId_1,
+        UserBasicInfo.RankId,
+        UserBasicInfo.bRecordingInOut,
+        UserBasicInfo.InstructorId,
+        UserBasicInfo.SubCardStatusId,
+        UserBasicInfo.SubCard_1StatusId,
+        UserBasicInfo.EmailAddress,
+        UserBasicInfo.PresentAddress,
+        UserBasicInfo.RelationUserId,
+        UserBasicInfo.RelationId,
+        UserBasicInfo.OperatorId,
+        UserBasicInfo.Weight,
+        UserBasicInfo.CompanionNum,
+        UserBasicInfo.TempAddress,
+        UserBasicInfo.PersonnelEntryCauses,
+        UserBasicInfo.DocumentsRequiredConditions,
+        UserBasicInfo.ExtensionInfo,
+        UserBasicInfo.LockPassWord,
+        UserBasicInfo.CoercionPassWword,
+        UserBasicInfo.WeChatInfo,
+        UserBasicInfo.SubCardType,
+        UserBasicInfo.SubCard1Type,
+        UserBasicInfo.VerifyTypeId,
+        UserBasicInfo.UpdateTime,
+        UserBasicInfo.OpenDoorAuth,
+        UserBasicInfo.TimeLimitPeriodIds,
+        UserBasicInfo.UserRole,
+        UserBasicInfo.DataSource,
+        UserBasicInfo.equipmentId,
+        UserBasicInfo.equipmentupdatetime,
+        UserBasicInfo.validStatus,
+        UserBasicInfo.vphoneId
+    </sql>
+    <sql id="base_info_properties">
+        #{UserName},
+        #{CardId},
+        #{Balance},
+        #{ConsumeTotal},
+        #{CardStatusId},
+        #{CardType},
+        #{Phonetized_Name},
+        #{GenderId},
+        #{RegisterTime},
+        #{WorkPosition},
+        #{WorkType},
+        #{EmployeeType},
+        #{ExpiredTime},
+        #{Status},
+        #{PassWord},
+        #{IdentityNo},
+        #{CridentialId},
+        #{HomePhone},
+        #{CellPhone},
+        #{Birthday},
+        #{Address},
+        #{EduLevelId},
+        #{StuClassId},
+        #{DutyId},
+        #{EmpDeptId},
+        #{TchSpecialityId},
+        #{GraduatedSchool},
+        #{GraduateSpeciality},
+        #{WorkTime},
+        #{BedchamberId},
+        #{StudentFlag},
+        #{EmployeeFlag},
+        #{TeacherFlag},
+        #{ACRuleId},
+        #{DeleteDate},
+        #{OrgCorp},
+        #{CardId_10},
+        #{CredentialsTypeId},
+        #{Corporation},
+        #{NationId},
+        #{Instructor},
+        #{PoliticsId},
+        #{GraduateTime},
+        #{GuardianName},
+        #{StudentStatus},
+        #{StudentTypeId},
+        #{SchoolSystem},
+        #{StudentChange},
+        #{Remarks},
+        #{BedNum},
+        #{UserType},
+        #{ExtUserId},
+        #{OfficePhone},
+        #{SubCardId},
+        #{InsureTime},
+        #{InsutanceId},
+        #{HealthStatusId},
+        #{SubCardId_1},
+        #{RankId},
+        #{bRecordingInOut},
+        #{InstructorId},
+        #{SubCardStatusId},
+        #{SubCard_1StatusId},
+        #{EmailAddress},
+        #{PresentAddress},
+        #{RelationUserId},
+        #{RelationId},
+        #{OperatorId},
+        #{Weight},
+        #{CompanionNum},
+        #{TempAddress},
+        #{PersonnelEntryCauses},
+        #{DocumentsRequiredConditions},
+        #{ExtensionInfo},
+        #{LockPassWord},
+        #{CoercionPassWword},
+        #{WeChatInfo},
+        #{SubCardType},
+        #{SubCard1Type},
+        #{VerifyTypeId},
+        #{UpdateTime},
+        #{OpenDoorAuth},
+        #{TimeLimitPeriodIds},
+        #{UserRole},
+        #{DataSource},
+        #{equipmentId},
+        #{equipmentupdatetime},
+        #{validStatus},
+        #{vphoneId}
+    </sql>
+
+    <insert id="addUserInfo" parameterType="com.lock.entity.UserInfo" useGeneratedKeys="true">
+        insert into UserBasicInfo (<include refid="basic_info_columns"/>)
+        values (<include refid="base_info_properties"/>)
+    </insert>
+
+    <update id="updateUserInfoByUserId" parameterType="com.lock.entity.UserInfo">
+        update UserBasicInfo set
+        UserName=#{UserName},
+        BedchamberId=#{BedchamberId},
+        IdentityNo=#{IdentityNo},
+        ExpiredTime=#{ExpiredTime}
+        where UserId=#{UserId}
+    </update>
+
+    <select id="UserList" resultType="com.lock.entity.UserInfo">
+         select * from UserBasicInfo where BedchamberId is null or BedchamberId=0 order by UserId desc;
+    </select>
+
+    <select id="queryUserInfoList" resultType="com.lock.entity.UserInfo">
+        select * from UserBasicInfo where BedchamberId=${value};
+    </select>
+
+    <select id="queryAvailable" resultType="com.lock.entity.UserInfo" parameterType="java.util.Map">
+        select  * from UserBasicInfo
+        where CridentialId  LIKE '${CridentialId}%' and (BedchamberId!=${roomId} or BedchamberId is null);
+    </select>
+
+    <select id="queryUserId" resultType="int">
+      select UserId from UserBasicInfo where UserName=${value};
+    </select>
+
+    <update id="updateTemUserInfoByUserId" parameterType="com.lock.entity.UserInfo">
+        update UserBasicInfo set
+        UserName=#{UserName},
+        BedchamberId=#{BedchamberId},
+        ExpiredTime='2018-05-11 00:00:00.000'
+        where UserId=#{UserId}
+    </update>
+
+    <!-- 更换房间 -->
+    <update id="updateCridentialIdByUserId" parameterType="com.lock.entity.UserInfo">
+        update UserBasicInfo set
+        BedchamberId=#{BedchamberId},
+        CridentialId=#{CridentialId}
+        where UserId=#{UserId}
+    </update>
+
+</mapper>

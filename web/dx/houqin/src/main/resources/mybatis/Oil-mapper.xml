@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houqin.dao.oil.OilDao">
+
+    <select id="queryOilStatisticByYear" resultType="com.houqin.entity.oil.OilStatistic">
+        Select Year(na.createTime)as year, Month(na.createTime) as month,SUM(na.litre) as amount
+        FROM `oil` na
+        where ${whereSql}
+        Group by Month(na.createTime)
+    </select>
+
+
+    <select id="queryCountByYear" resultType="int">
+        select IFNULL(SUM(litre),0) from oil na where ${whereSql};
+    </select>
+
+
+</mapper>

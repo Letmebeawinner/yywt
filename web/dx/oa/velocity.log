@@ -1,0 +1,321 @@
+2019-04-29 16:33:14,625 - Log4JLogChute initialized using file 'velocity.log'
+2019-04-29 16:33:14,625 - Initializing Velocity, Calling init()...
+2019-04-29 16:33:14,625 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2019-04-29 16:33:14,625 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2019-04-29 16:33:14,625 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2019-04-29 16:33:14,625 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2019-04-29 16:33:14,625 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2019-04-29 16:33:14,625 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2019-04-29 16:33:14,636 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:14,669 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2019-04-29 16:33:14,673 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2019-04-29 16:33:14,675 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2019-04-29 16:33:14,677 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2019-04-29 16:33:14,678 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2019-04-29 16:33:14,682 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2019-04-29 16:33:14,686 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2019-04-29 16:33:14,691 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2019-04-29 16:33:14,699 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2019-04-29 16:33:14,702 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2019-04-29 16:33:14,783 - Created '20' parsers.
+2019-04-29 16:33:14,799 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2019-04-29 16:33:14,801 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+2019-04-29 16:33:14,801 - Velocimacro : Default library not found.
+2019-04-29 16:33:14,801 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2019-04-29 16:33:14,801 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2019-04-29 16:33:14,801 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2019-04-29 16:33:14,801 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2019-04-29 16:33:14,830 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:14,857 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:14,874 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:14,967 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:14,991 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,011 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,028 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,046 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,063 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,070 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,092 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,114 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,136 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,161 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,183 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,206 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,231 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,250 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,267 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,284 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,301 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,324 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,348 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,377 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,399 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,423 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,444 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,465 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,483 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,505 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,528 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,549 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,569 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,594 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,615 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,640 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,663 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,699 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,716 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,739 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,756 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,779 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,798 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,817 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,838 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,857 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,876 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,895 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,914 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,937 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,958 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:15,984 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,006 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,042 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,064 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,092 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,129 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,167 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,191 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,217 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,249 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,279 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,314 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,346 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,377 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,394 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,421 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,443 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,465 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,484 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,503 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,526 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,544 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,561 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,578 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,596 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,613 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,644 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,663 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2019-04-29 16:33:16,688 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:43,705 - Log4JLogChute initialized using file 'velocity.log'
+2020-01-06 15:59:43,755 - Initializing Velocity, Calling init()...
+2020-01-06 15:59:43,755 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2020-01-06 15:59:43,755 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2020-01-06 15:59:43,755 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2020-01-06 15:59:43,755 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2020-01-06 15:59:43,755 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-01-06 15:59:43,755 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-01-06 15:59:43,765 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:43,902 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2020-01-06 15:59:43,905 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2020-01-06 15:59:43,944 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2020-01-06 15:59:43,946 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2020-01-06 15:59:43,949 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2020-01-06 15:59:43,950 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2020-01-06 15:59:43,953 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2020-01-06 15:59:43,984 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2020-01-06 15:59:43,992 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2020-01-06 15:59:44,061 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2020-01-06 15:59:44,404 - Created '20' parsers.
+2020-01-06 15:59:44,417 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2020-01-06 15:59:44,440 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+2020-01-06 15:59:44,440 - Velocimacro : Default library not found.
+2020-01-06 15:59:44,440 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2020-01-06 15:59:44,440 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2020-01-06 15:59:44,440 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2020-01-06 15:59:44,440 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2020-01-06 15:59:44,528 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,557 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,609 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,680 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,695 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,710 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,735 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,770 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,843 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:44,900 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,032 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,110 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,168 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,213 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,259 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,318 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,357 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,384 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,410 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,596 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,643 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,763 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,891 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,936 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:45,961 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,002 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,056 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,129 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,224 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,252 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,324 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,461 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,488 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,552 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,673 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,696 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,736 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,776 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,805 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,882 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,904 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:46,980 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,054 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,094 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,193 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,286 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,346 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,400 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,487 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,540 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,590 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,653 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,679 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,699 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,762 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,804 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,824 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,854 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,874 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,895 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,974 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:47,994 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,081 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,101 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,129 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,186 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,223 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,277 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,337 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,448 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,523 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,552 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,586 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,648 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,703 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,830 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:48,895 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:49,023 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:49,210 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-06 15:59:49,286 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:48,975 - Log4JLogChute initialized using file 'velocity.log'
+2020-01-10 15:37:48,991 - Initializing Velocity, Calling init()...
+2020-01-10 15:37:48,991 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2020-01-10 15:37:48,991 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2020-01-10 15:37:48,991 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2020-01-10 15:37:48,991 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2020-01-10 15:37:48,991 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-01-10 15:37:48,991 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-01-10 15:37:48,995 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,022 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2020-01-10 15:37:49,023 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2020-01-10 15:37:49,024 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2020-01-10 15:37:49,025 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2020-01-10 15:37:49,025 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2020-01-10 15:37:49,026 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2020-01-10 15:37:49,027 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2020-01-10 15:37:49,028 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2020-01-10 15:37:49,029 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2020-01-10 15:37:49,030 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2020-01-10 15:37:49,058 - Created '20' parsers.
+2020-01-10 15:37:49,064 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2020-01-10 15:37:49,064 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+2020-01-10 15:37:49,064 - Velocimacro : Default library not found.
+2020-01-10 15:37:49,064 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2020-01-10 15:37:49,064 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2020-01-10 15:37:49,064 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2020-01-10 15:37:49,064 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2020-01-10 15:37:49,080 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,089 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,097 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,107 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,114 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,121 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,129 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,139 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,147 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,152 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,161 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,169 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,176 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,183 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,191 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,199 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,205 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,213 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,221 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,229 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,236 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,244 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,254 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,263 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,272 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,282 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,291 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,300 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,309 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,317 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,326 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,335 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,343 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,349 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,356 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,362 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,369 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,377 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,383 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,390 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,396 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,404 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,410 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,417 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,424 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,431 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,437 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,444 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,451 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,459 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,466 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,472 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,478 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,485 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,492 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,498 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,505 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,513 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,522 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,528 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,534 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,544 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,552 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,561 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,569 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,577 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,584 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,591 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,597 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,604 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,611 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,617 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,626 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,635 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,641 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,649 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,655 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,664 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,673 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-01-10 15:37:49,679 - ResourceManager : found createSql.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.classes.ClassesTeacherRecordDao">
+
+    <select id="getRecordOrderByTime" resultType="com.jiaowu.entity.classes.ClassesTeacherRecord" parameterType="java.util.Map">
+        select classesteacherrecord.*,classes.startTime AS startTime ,classes.endTime AS endTime
+        from classesteacherrecord
+        left join classes on classesteacherrecord.classesId = classes.id
+        where 
+        ${whereSql}
+        ORDER BY classes.startTime desc,classes.id
+        limit ${start},${end};
+    </select>
+
+    <select id="getRecordOrderByTimeCount" resultType="int" parameterType="java.util.Map">
+        select COUNT(*)
+        from classesteacherrecord
+        left join classes on classesteacherrecord.classesId = classes.id
+        where 
+        ${whereSql}
+    </select>
+
+
+</mapper>

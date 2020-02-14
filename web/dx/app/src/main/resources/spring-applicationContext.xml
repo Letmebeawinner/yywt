@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"/>
+    </bean>
+
+    <context:component-scan base-package="com.app,com.a_268.base">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+    <!-- 调用教务项目的接口 -->
+    <bean id="jwHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.app.biz.common.JiaoWuHessianService" />
+        <property name="serviceUrl" value="${jw.root}/hessian/jiaoWuHessianService"/>
+        <property name="readTimeout" value="100000" />
+        <property name="chunkedPost" value="false"/>
+    </bean>
+    <!--调用base项目用户操作-->
+    <bean id="sysUserService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.app.biz.common.SysUserService" />
+        <property name="serviceUrl" value="${base.root}/hessian/sysUserService"/>
+        <property name="readTimeout" value="100000" />
+        <property name="overloadEnabled" value="true"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+    <!--调用base项目用户日志操作-->
+    <bean id="sysUserLogService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.app.biz.common.SysUserLogService" />
+        <property name="serviceUrl" value="${base.root}/hessian/sysUserLogService"/>
+        <property name="readTimeout" value="100000" />
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!--调用base项目用户日志操作-->
+    <bean id="hessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.app.biz.common.BaseHessianService" />
+        <property name="serviceUrl" value="${base.root}/hessian/hessianService"/>
+        <property name="readTimeout" value="100000" />
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"></property>
+    </bean>
+
+    <context:component-scan base-package="com.houqin">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+    <import resource="spring-quartz.xml"/>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="baseHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.houqin.common.BaseHessianService"></property>
+        <property name="serviceUrl">
+            <value>${base.root}/hessian/hessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="jwHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.houqin.biz.common.JiaoWuHessianService"/>
+        <property name="serviceUrl" value="${student.root}/hessian/jiaoWuHessianService"/>
+        <property name="readTimeout" value="100000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!--调用短信平台的接口-->
+    <bean id="smsHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.houqin.biz.common.SmsHessianService"/>
+        <property name="serviceUrl" value="${sms.root}/hessian/smsHessianService"/>
+        <property name="readTimeout" value="1000000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+
+    <!--调用门锁平台的接口-->
+    <bean id="lockHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.houqin.biz.common.LockHessianService"/>
+        <property name="serviceUrl" value="${lock.root}/hessian/lockHessianService"/>
+        <property name="readTimeout" value="1000000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!--调用一卡通平台的接口-->
+    <bean id="attendanceHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.houqin.biz.common.AttendanceHessianService"/>
+        <property name="serviceUrl" value="${yikatong.root}/hessian/attendanceHessianService"/>
+        <property name="readTimeout" value="1000000"/>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+</beans>

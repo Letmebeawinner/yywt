@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+    <!--
+        &lt;!&ndash; 定时器配置 lazy-init='false'&ndash;&gt;
+        <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no">
+            <property name="triggers">
+                <list>
+                    &lt;!&ndash;成果到期归档 &ndash;&gt;
+                    <ref bean="resultFileJob"/>
+                    <ref bean="resultStatisticsJob"/>
+                </list>
+            </property>
+        </bean>
+
+        &lt;!&ndash; 成果到期归档&ndash;&gt;
+        <bean id="resultFileJob" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+              lazy-init="false">
+            <property name="jobDetail">
+                <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                    <property name="targetObject">
+                        <ref bean="resultBiz"/>
+                    </property>
+                    <property name="targetMethod">
+                        <value>resultFile</value>
+                    </property>
+                    <property name="concurrent">
+                        <value>false</value>
+                    </property>
+                </bean>
+            </property>
+            <property name="cronExpression">
+                <value>0 59 23 31 12 ?</value>&lt;!&ndash; 半小时间隔 &ndash;&gt;
+            </property>
+        </bean>
+        &lt;!&ndash; 成果定期统计&ndash;&gt;
+        <bean id="resultStatisticsJob" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+              lazy-init="false">
+            <property name="jobDetail">
+                <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                    <property name="targetObject">
+                        <ref bean="resultStatisticsBiz"/>
+                    </property>
+                    <property name="targetMethod">
+                        <value>resultStatistics</value>
+                    </property>
+                    <property name="concurrent">
+                        <value>false</value>
+                    </property>
+                </bean>
+            </property>
+            <property name="cronExpression">
+                <value>0 30 23 * * ?</value>&lt;!&ndash; 没晚11点半 &ndash;&gt;
+            </property>
+        </bean>-->
+</beans>

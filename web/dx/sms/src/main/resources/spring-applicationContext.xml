@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"/>
+    </bean>
+
+    <!-- 调用其他项目的接口 -->
+    <bean id="baseHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface" value="com.sms.biz.common.BaseHessianService"/>
+        <property name="serviceUrl" value="${layout.root}/hessian/hessianService"/>
+        <property name="readTimeout" value="100000"/>
+        <property name="proxyFactory">
+            <bean class="com.caucho.hessian.client.HessianProxyFactory"/>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用人事的接口 -->
+    <bean id="hrHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.sms.biz.common.HrHessianService"></property>
+        <property name="serviceUrl">
+            <value>${hr.root}/hessian/hrHessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <context:component-scan base-package="com.sms">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+
+</beans>

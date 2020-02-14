@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yicardtong.dao.commons.WorkSmailDao">
+
+
+    <sql id="work_columns">
+        Work_Smail.Base_OperCode,
+        Work_Smail.base_Mail,
+        Work_Smail.base_Password,
+        Work_Smail.base_MP
+    </sql>
+
+    <sql id="work_properties">
+        #{Base_OperCode},
+        #{base_Mail},
+        #{base_Password},
+        #{base_MP}
+    </sql>
+
+
+    <insert id="addWork" parameterType="com.yicardtong.entity.WorkSmail"  useGeneratedKeys="true">
+        insert into Work_Smail(<include refid="work_columns"/>)
+        values (<include refid="work_properties"/>)
+    </insert>
+
+
+
+    <delete id="deleteWork" parameterType="String">
+        delete from Work_Smail where Base_OperCode=#{value}
+    </delete>
+
+</mapper>

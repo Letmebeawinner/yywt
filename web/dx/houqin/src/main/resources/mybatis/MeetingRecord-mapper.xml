@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houqin.dao.meeting.MeetingRecordDao">
+
+    <select id = "getMeetingRecordByYear"  resultType="map">
+        select
+            sum(case month(useTime) when '1' then 1 else 0 end) as '1',
+            sum(case month(useTime) when '2' then 1 else 0 end) as '2',
+            sum(case month(useTime) when '3' then 1 else 0 end) as '3',
+            sum(case month(useTime) when '4' then 1 else 0 end) as '4',
+            sum(case month(useTime) when '5' then 1 else 0 end) as '5',
+            sum(case month(useTime) when '6' then 1 else 0 end) as '6',
+            sum(case month(useTime) when '7' then 1 else 0 end) as '7',
+            sum(case month(useTime) when '8' then 1 else 0 end) as '8',
+            sum(case month(useTime) when '9' then 1 else 0 end) as '9',
+            sum(case month(useTime) when '10' then 1 else 0 end) as '10',
+            sum(case month(useTime) when '11' then 1 else 0 end) as '11',
+            sum(case month(useTime) when '12' then 1 else 0 end) as '12'
+        from meetingrecord
+        where year(useTime)= #{time};
+    </select>
+
+    <select id = "getMeetingRecordDetailByYearAndMonth" resultType="map">
+        select count(1) num, meeting.name
+        from meetingrecord
+        join meeting on meeting.id = meetingrecord.meetingid
+        where year(meetingrecord.useTime)= #{year} and month(meetingrecord.useTime) = #{month} group by meetingrecord.meetingid;
+    </select>
+
+    <select id = "getMeetingRecordGroupByClassesId" resultType="map">
+        select
+            sum(case month(useTime) when '1' then 1 else 0 end) as '1',
+            sum(case month(useTime) when '2' then 1 else 0 end) as '2',
+            sum(case month(useTime) when '3' then 1 else 0 end) as '3',
+            sum(case month(useTime) when '4' then 1 else 0 end) as '4',
+            sum(case month(useTime) when '5' then 1 else 0 end) as '5',
+            sum(case month(useTime) when '6' then 1 else 0 end) as '6',
+            sum(case month(useTime) when '7' then 1 else 0 end) as '7',
+            sum(case month(useTime) when '8' then 1 else 0 end) as '8',
+            sum(case month(useTime) when '9' then 1 else 0 end) as '9',
+            sum(case month(useTime) when '10' then 1 else 0 end) as '10',
+            sum(case month(useTime) when '11' then 1 else 0 end) as '11',
+            sum(case month(useTime) when '12' then 1 else 0 end) as '12',
+            classesName as '0'
+        from meetingrecord
+        where year(meetingrecord.useTime)= #{time}
+        group by classesid
+    </select>
+
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+    <!--<bean id="baseHessianService" class="com.base.biz.common.BaseHessianBiz"/>-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <bean name="/smsHessianService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="smsHessianBiz" />
+        <property name="serviceInterface" value="com.sms.biz.common.SmsHessianService"/>
+    </bean>
+</beans>

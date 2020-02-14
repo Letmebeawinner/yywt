@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houqin.dao.meeting.MeetingDao">
+
+    <select id="querySchoolMeetingRecordNum" resultType="int">
+        select count(*) from meetingrecord where YEAR(createTime)=${whereSql};
+    </select>
+
+    <select id="queryMeetingRecordByYear" resultType="com.houqin.entity.meeting.MeetingStatistic">
+        Select Year(a.createTime)as year, Month(a.createTime) as month,count(*) as amount
+        FROM `meetingrecord` a
+        where Year(a.createTime) =${whereSql}
+        Group by Month(a.createTime);
+    </select>
+
+    <select id="queryMeetingRecordDetailStatistic" resultType="com.houqin.entity.meeting.Meeting">
+        select * from meetingrecord where MONTH(createTime)=${month} and YEAR(createTime)=${year};
+    </select>
+
+
+
+
+</mapper>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/layouts/main.jsp”所装饰 -->
+    <mapping path="/admin/*" decorator="/WEB-INF/layout/admin/default.jsp"/>
+    <mapping path="/" decorator="/WEB-INF/layout/admin/default.jsp"/>
+    <content-processor>
+        <tag-rule-bundle class="com.a_268.base.sitemesh.MetaExtendTegRuleBundle"/>
+    </content-processor>
+</sitemesh>

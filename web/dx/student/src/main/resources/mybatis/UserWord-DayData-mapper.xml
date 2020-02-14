@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jiaowu.dao.userWorkDayData.UserWorkDayDataDao">
+    <select id="getDateStatisticsList" resultType="com.jiaowu.entity.userWorkDayData.UserWorkDayData">
+        select DISTINCT(workDate) from userworkdaydata where ${value}
+    </select>
+    <select id="getDatePersonnelList" resultType="com.jiaowu.entity.userWorkDayData.UserWorkDayData"
+            parameterType="String">
+        select userName,morningAttendanceStatus,afternoonAttendanceStatus from userworkdaydata where ${value}
+    </select>
+
+
+    <select id="studentWorkDayDataList" resultType="com.jiaowu.entity.userWorkDayData.UserWorkDayDataDTO" parameterType="Map">
+        select userworkdaydata.*,classes.startTime,classes.endTime  from userworkdaydata
+        LEFT JOIN classes ON classes.id=userworkdaydata.classId
+        <where>
+            <if test="afternoonAttendanceStatus!=null and afternoonAttendanceStatus!=0">
+                and userworkdaydata.afternoonAttendanceStatus=#{afternoonAttendanceStatus}
+            </if>
+            <if test="userId!=null and userId!=0">
+                and userworkdaydata.userId=#{userId}
+            </if>
+            <if test="morningAttendanceStatus!=null and morningAttendanceStatus!=0">
+                and userworkdaydata.morningAttendanceStatus=#{morningAttendanceStatus}
+            </if>
+            <if test="workDate!=null and workDate!=''">
+                and userworkdaydata.workDate=#{workDate}
+            </if>
+            <if test="type!=null and type!=0">
+                and userworkdaydata.type=#{type}
+            </if>
+            <if test="classStartTime!=null and classStartTime!=''">
+                and <![CDATA[ classes.startTime= ]]>CONCAT(#{classStartTime},' 00:00:00')
+            </if>
+            <if test="classEndTime!=null and classEndTime!=''">
+                and <![CDATA[ classes.endTime= ]]>CONCAT(#{classEndTime},' 00:00:00')
+            </if>
+            <if test="classId!=null and classId!=0">
+                and userworkdaydata.classId=#{classId}
+            </if>
+            order by userworkdaydata.workDate desc
+            limit ${start},${end}
+        </where>
+    </select>
+    <select id="studentWorkDayDataListCount" resultType="int" parameterType="Map">
+        select count(1) from userworkdaydata
+        LEFT JOIN classes ON classes.id=userworkdaydata.classId
+        <where>
+            <if test="afternoonAttendanceStatus!=null and afternoonAttendanceStatus!=0">
+                and userworkdaydata.afternoonAttendanceStatus=#{afternoonAttendanceStatus}
+            </if>
+            <if test="userId!=null and userId!=0">
+                and userworkdaydata.userId=#{userId}
+            </if>
+            <if test="morningAttendanceStatus!=null and morningAttendanceStatus!=0">
+                and userworkdaydata.morningAttendanceStatus=#{morningAttendanceStatus}
+            </if>
+            <if test="workDate!=null and workDate!=''">
+                and userworkdaydata.workDate=#{workDate}
+            </if>
+            <if test="type!=null and type!=0">
+                and userworkdaydata.type=#{type}
+            </if>
+            <if test="classStartTime!=null and classStartTime!=''">
+                and <![CDATA[ classes.startTime= ]]>CONCAT(#{classStartTime},' 00:00:00')
+            </if>
+            <if test="classEndTime!=null and classEndTime!=''">
+                and <![CDATA[ classes.endTime= ]]>CONCAT(#{classEndTime},' 00:00:00')
+            </if>
+            <if test="classId!=null and classId!=0">
+                and userworkdaydata.classId=#{classId}
+            </if>
+        </where>
+    </select>
+</mapper>       

@@ -1,0 +1,90 @@
+<div class="modal" ng-controller="KisBpmAssignmentPopupCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+                <h2 translate>PROPERTY.ASSIGNMENT.TITLE</h2>
+            </div>
+            <div class="modal-body">
+            
+            	<div class="row row-no-gutter">
+            		<div class="form-group">
+            			<label for="assigneeField">{{'PROPERTY.ASSIGNMENT.ASSIGNEE' | translate}}</label>
+            			<input type="text" id="assigneeField" class="form-control" ng-model="assignment.assignee" placeholder="{{'PROPERTY.ASSIGNMENT.ASSIGNEE_PLACEHOLDER' | translate}}" />
+                        <!--<select type="text" id="assigneeField" class="form-control" ng-model="assignment.assignee" placeholder="{{'PROPERTY.ASSIGNMENT.ASSIGNEE_PLACEHOLDER' | translate}}">-->
+                        <!--</select>-->
+            		</div>
+            	</div>
+            	
+                <div class="row row-no-gutter">
+                    <!--<div class="form-group">-->
+                    	<!--<label for="userField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_USERS' | translate}}</label>-->
+                        <!--<div ng-repeat="candidateUser in assignment.candidateUsers">-->
+            	            <!--<input id="userField" class="form-control" type="text" ng-model="candidateUser.value" />-->
+            	            <!--<i class="glyphicon glyphicon-minus clickable-property" ng-click="removeCandidateUserValue($index)"></i>-->
+            	            <!--<i ng-if="$index == (assignment.candidateUsers.length - 1)" class="glyphicon glyphicon-plus clickable-property" ng-click="addCandidateUserValue($index)"></i>-->
+                        <!--</div>-->
+                   	<!--</div>-->
+            
+                    <div class="form-group">
+                    	<label for="groupField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_GROUPS' | translate}}</label>
+                        <div ng-repeat="candidateGroup in assignment.candidateGroups">
+            	          	<input id="groupField" class="form-control" type="text" ng-model="candidateGroup.value" />
+                            <!--<select ng-model="candidateGroup.value" id = "groupField" class = "form-control">-->
+                            <!--</select>-->
+            	          	<!--<i class="glyphicon glyphicon-minus clickable-property" ng-click="removeCandidateGroupValue($index)"></i>-->
+            	          	<!--<i ng-if="$index == (assignment.candidateGroups.length - 1)" class="glyphicon glyphicon-plus clickable-property" ng-click="addCandidateGroupValue($index)"></i>-->
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+                <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+            </div>
+        </div>
+    </div>
+
+    <script type = "text/javascript">
+
+//        jQuery(function() {
+//            var groupField = jQuery("#groupField").val();
+//            alert(groupField);
+//            var assigneeField = jQuery("#assigneeField").val();
+//            console.log("哈哈" + groupField);
+//            jQuery.ajax({
+////                url: "/admin/oa/model/user/info.json",
+//                type: "post",
+//                dataType: "json",
+//                cache: false,
+//                success: function(result) {
+//                    if (result.code == "0") {
+//                        var str = "<option value = ''>未选择</option>";
+//                        var str2 = "<option value = ''>未选择</option>";
+//                        jQuery.each(result.data, function(index, value) {
+//                            var selected = "";
+//                            var selected2 = "";
+//                            if (1 == value.id) {
+//                                selected2 = "selected = 'selected'"
+//                            }
+//                            if (1 == value.id) {
+//                                var selected1 = "selected = 'selected'"
+//                            }
+//                            str2 += "<option value = '" + value.id + "'" +  selected2  + ">" + value.userName + "</option>";
+//                            str += "<option value = '" + value.id  + "'" +  selected1  + ">" + value.userName + "</option>";
+//                            jQuery("#groupField").html(str2);
+//                            jQuery("#assigneeField").html(str);
+//                        });
+//                    }
+//                }
+//            });
+//            var groupField = jQuery("#groupField").val();
+//            var assigneeField = jQuery("#assigneeField").val();
+//           /* jQuery("#groupField").find("option[value='1']").attr("selected",true);*/
+//            console.log(jQuery("#groupField").find("option[selected=true]").val())
+//
+//        });
+
+    </script>
+</div>

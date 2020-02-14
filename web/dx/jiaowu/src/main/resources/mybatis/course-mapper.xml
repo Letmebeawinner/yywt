@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaowu.dao.course.CourseArrangeDao">
+
+    <select id="queryCourseArrange" resultType="com.jiaowu.entity.course.CourseArrange">
+      select c.teacherId,c.teacherName,count(1) as sum from coursearrange c ${whereSql} group by teacherId
+    </select>
+
+
+    <select id="queryCourseInfo" resultType="com.jiaowu.entity.course.CourseArrange">
+        SELECT
+	cla.teacherName ,
+	cla.`name` as className,
+	tea.courseName as courseName,
+	courses.startTime,
+	 tea.classroomName
+    FROM
+	coursearrange courses
+    LEFT JOIN classes cla ON courses.classId = cla.id
+    LEFT JOIN teachingprogramcourse tea ON courses.teachingProgramCourseId = tea.id where courses.teacherId=${whereSql} ${className}
+    limit ${(currentPage-1)*pageSize},#{pageSize};
+    </select>
+
+
+    <select id="queryCountCourseInfo" resultType="int">
+        SELECT count(1) FROM
+        coursearrange courses
+        LEFT JOIN classes cla ON courses.classId = cla.id
+        LEFT JOIN teachingprogramcourse tea ON courses.teachingProgramCourseId = tea.id where courses.teacherId=${whereSql} ${className}
+    </select>
+
+    <select id="courseArrangePercentOfClass" resultType="Map">
+        select classId,className,count(1) as num from coursearrange where ${whereSql} group by classId
+    </select>
+
+    <select id="statisticCourseByTeacherResearch" resultType="int">
+        select IFNULL(T.num,0)  from ( select count(1) as num from coursearrange ${whereSql}) as T;
+    </select>
+</mapper>

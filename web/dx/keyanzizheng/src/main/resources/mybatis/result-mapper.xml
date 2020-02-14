@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.keyanzizheng.dao.result.ResultDao">
+
+    <select id="queryStatisticResult" resultType="com.keyanzizheng.entity.result.ResultFormStatistic">
+        SELECT
+        resultform.`name`,
+        resultform,
+        count(1) AS num
+        FROM
+        result
+        LEFT JOIN resultform ON result.resultForm = resultform.id
+        WHERE
+        ${whereSql}
+        and YEAR(result.createTime)=${selectYear} GROUP BY resultForm;
+    </select>
+
+    <select id="queryResultForm" resultType="com.keyanzizheng.entity.result.ResultFormStatistic">
+        SELECT
+        count(id) as num,
+        resultform as name
+        FROM
+        result
+        WHERE
+        ${whereSql}
+        AND resultType = 1
+        AND resultform is not NULL
+        GROUP BY
+        resultform
+    </select>
+
+
+</mapper>

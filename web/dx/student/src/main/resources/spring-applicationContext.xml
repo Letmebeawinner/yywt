@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config.properties"></property>
+    </bean>
+
+    <context:component-scan base-package="com.jiaowu,com.a_268.base">
+    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+	<mvc:default-servlet-handler />
+	
+    <import resource="spring-datasource.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-dispatcher.xml"/>
+    <import resource="spring-quartz.xml"/>
+
+	<!-- 调用其他项目的接口 -->
+    <bean id="hessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.jiaowu.biz.common.HrHessianService"></property>
+        <property name="serviceUrl">
+            <value>${hr.root}/hessian/hrHessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用后勤项目的接口 -->
+    <bean id="HqHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.jiaowu.biz.common.HqHessianService"></property>
+        <property name="serviceUrl">
+            <value>${hq.root}/hessian/HqHessionService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+
+    <!-- 调用base项目的接口 -->
+    <bean id="BasehessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.jiaowu.biz.common.BaseHessianService"></property>
+        <property name="serviceUrl">
+            <value>${base.root}/hessian/hessianService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+    <!-- 调用一卡通项目的接口 -->
+    <bean id="WorkSourceService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceInterface"
+                  value="com.jiaowu.biz.common.WorkSourceService"></property>
+        <property name="serviceUrl">
+            <value>${yicardtong.root}/hessian/workSourceService</value>
+        </property>
+        <property name="readTimeout">
+            <value>100000</value>
+        </property>
+        <property name="chunkedPost" value="false"/>
+    </bean>
+</beans>

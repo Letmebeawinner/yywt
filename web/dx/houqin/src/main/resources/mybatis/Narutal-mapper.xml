@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houqin.dao.natural.NaturalDao">
+
+    <select id="queryNaturalCount" resultType="int">
+        select count(*) from `natural`
+    </select>
+
+    <select id="queryStatisticByYearAndMonth" resultType="com.houqin.entity.natural.NaturalStatistic">
+        Select Year(str_to_date(na.monthTime, '%Y-%m-%d'))as year, Month(str_to_date(na.monthTime, '%Y-%m-%d')) as month,SUM(na.amount) as amount
+        FROM `natural` na
+        where ${whereSql}
+        Group by Month(str_to_date(na.monthTime, '%Y-%m-%d'))
+    </select>
+
+
+    <select id="queryCountByYear" resultType="int">
+        select IFNULL(SUM(amount),0) from `natural` as na  where ${whereSql};
+    </select>
+
+    <select id="queryNaturalPurposeByYear" resultType="com.houqin.entity.natural.NaturalStatistic">
+        SELECT nt.type AS type ,sum(na.amount) AS amount
+        FROM `natural` na
+        LEFT JOIN naturaltype nt ON nt.id = na.type
+        WHERE ${whereSql}
+        GROUP BY na.type;
+    </select>
+
+
+
+</mapper>

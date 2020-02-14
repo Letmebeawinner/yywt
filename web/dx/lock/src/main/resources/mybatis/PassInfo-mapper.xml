@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lock.dao.PassInfoDao">
+
+    <select id="passInfoList" resultType="com.lock.entity.PassInfo">
+     SELECT
+top 100
+	UserBasicInfo.UserId,
+	UserBasicInfo.CardId,
+	UserBasicInfo.UserName,
+	passinfo.PassTime,
+	UserBedroomRef.bedroomid
+FROM
+	passinfo
+LEFT JOIN UserBasicInfo ON passinfo.UserId = UserBasicInfo.UserId left JOIN  UserBedroomRef ON
+UserBedroomRef.userid=UserBedroomRef.userid
+where UserBasicInfo.UserId!='' ${whereSql};
+    </select>
+
+</mapper>

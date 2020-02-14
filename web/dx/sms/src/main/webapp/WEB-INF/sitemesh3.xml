@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/layouts/main.jsp”所装饰 -->
+    <mapping path="/admin/*" decorator="/WEB-INF/layout/admin/default.jsp"/>
+    <mapping path="/" decorator="/WEB-INF/layout/admin/default.jsp"/>
+    <!-- 排除布局 -->
+    <mapping path="/admin/toLogin.json" exclue="true"/>
+    <mapping path="/admin/sms/open/infoRecordOfficialDocument.json" exclue="true"/>
+    <mapping path="/admin/sms/email/deleteEmailSendRecord.json" exclue="true" />
+    <mapping path="/admin/sms/email/queryReceivers.json" exclue="true" />
+    <mapping path="/admin/sms/email/sendEmail.json" exclue="true" />
+    <mapping path="/admin/sms/message/getUser.json" exclue="true" />
+    <mapping path="/admin/sms/info/deleteInfoSendRecord.json" exclue="true" />
+    <mapping path="/admin/sms/info/queryReceivers.json" exclue="true" />
+    <mapping path="/admin/sms/info/sendInfo.json" exclue="true" />
+    <content-processor>
+        <tag-rule-bundle class="com.a_268.base.sitemesh.MetaExtendTegRuleBundle"/>
+    </content-processor>
+</sitemesh>

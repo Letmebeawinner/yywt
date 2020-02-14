@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houqin.dao.repair.RepairDao">
+
+    <select id="queryMaintenanceStatistics" resultType="com.houqin.entity.repair.RepairStatistics">
+      SELECT YEAR(a.createTime) AS YEAR, MONTH(a.createTime) AS MONTH, COUNT(*) AS count,(
+        SELECT COUNT(*)
+        FROM REPAIR r
+        WHERE r.status=2 AND YEAR(r.createTime)=${whereSql} AND MONTH(r.createTime)= MONTH(a.createTime)) AS YIMaintenance,(COUNT(*)-(
+        SELECT COUNT(*)
+        FROM REPAIR r
+        WHERE r.status=2 AND YEAR(r.createTime)=${whereSql} AND MONTH(r.createTime)= MONTH(a.createTime))) as WEIMaintenance
+        FROM REPAIR a
+        WHERE YEAR(a.createTime)=${whereSql}
+        GROUP BY MONTH(a.createTime)
+    </select>
+
+
+    <select id="queryRepairNumByType" resultType="com.houqin.entity.repair.RepairStatistics">
+    SELECT YEAR(re.createTime) AS YEAR ,MONTH(re.createTime) AS MONTH ,re.typeId ,type.`name`,count(*) as count
+    FROM REPAIR re left join repairtype type on re.typeId=type.id
+    WHERE YEAR(re.createTime) = ${year} AND MONTH(re.createTime) = ${month} GROUP BY re.typeId;
+  </select>
+
+
+</mapper>

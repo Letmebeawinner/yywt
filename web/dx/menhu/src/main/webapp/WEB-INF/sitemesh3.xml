@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+
+
+    <!-- 不走布局的页面 静态资源 文本编辑器 api -->
+    <mapping path="/static/*" exclue="true"/>
+    <mapping path="/ueditor/*" exclue="true"/>
+    <mapping path="/api/*" exclue="true"/>
+    <mapping path="/app/*" exclue="true"/>
+    <mapping path="/*/ajax*" exclue="true"/>
+    <mapping path="/*/ajax/*" exclue="true"/>
+    <mapping path="/*/*/ajax/*" exclue="true"/>
+
+
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/layouts/main.jsp”所装饰 -->
+    <mapping path="/admin/*" decorator="/WEB-INF/layout/admin/default.jsp" />
+
+    <mapping>
+        <path>/</path>
+        <path>/index.json</path>
+        <path>/front/*</path>
+        <decorator>/WEB-INF/layout/index/header.jsp</decorator>
+        <decorator>/WEB-INF/layout/index/footer.jsp</decorator>
+    </mapping>
+
+	<!-- 排除布局 -->
+	<mapping path="/admin/toLogin" exclue="true"/>
+	<content-processor>
+    	<tag-rule-bundle class="com.a_268.base.sitemesh.MetaExtendTegRuleBundle" />
+    </content-processor>
+</sitemesh>
